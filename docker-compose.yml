@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  mysql:
+    image: mariadb:latest
+    container_name: mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=lala
+    volumes:
+    - ./mysqldata:/var/lib/mysql
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+    - POSTGRES_PASSWORD=lala
+    volumes:
+    - ./postgresdata:/var/lib/postgresql/data
+
+  rails:
+    image: rails:latest
+    container_name: rails
+    depends_on:
+    - mysql
+    - postgres
+    ports:
+    - "80:3000"
+    volumes:
+    - ./rails:/root/rails
