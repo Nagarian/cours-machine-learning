@@ -8,6 +8,14 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2'
 
 gem 'slim'
+
+gem 'slim-rails'
+gem 'simple_form'
+gem 'font-awesome-rails'
+# gem 'bootstrap-glyphicons'
+gem 'materialize-sass'
+gem 'angularjs-rails'
+
 # Use Puma as the app server
 # gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
