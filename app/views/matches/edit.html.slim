@@ -8,5 +8,5 @@ h2 Modifier match
   = m.input :away_team, label: "Equipe visiteuse"
   = m.input :away_prevision, label: "Prédiction buts - visiteurs"
   = m.input :away_score, label: "Buts - visiteurs"
-  = m.input :championnat_id, label: "Championnat associé"
+  = m.input :championnat_id, label: "Championnat associé", collection: @Championnats, label_method: "name", value_method: "championnat_id"
   = m.button :submit, "Valider", class: "btn"
