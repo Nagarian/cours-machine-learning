@@ -17,8 +17,8 @@ a.btn href="#{new_match_path}" Créer un nouveau match
             method: :delete,
             data: { confirm: 'Confirmer la suppression ?' },
             class: 'error'
-          .card-reveal
-            span.card-title "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
-            p "Prédiction : #{match.home_prevision} - #{match.away_prevision}"
-            p "Réel : #{match.home_score} - #{match.away_score}"
-            p "Gagnant : #{match.draw_prevision}"
+        .card-reveal
+          span.card-title "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
+          p "Prédiction : #{match.home_prevision} - #{match.away_prevision}"
+          p "Réel : #{match.home_score} - #{match.away_score}"
+          p "Gagnant : #{match.draw_prevision}"
