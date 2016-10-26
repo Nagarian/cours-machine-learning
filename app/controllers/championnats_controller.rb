@@ -1,5 +1,6 @@
 class ChampionnatsController < ApplicationController
- 
+    layout 'admin'
+    
     def index
         @championnats = Championnat.all
     end
