@@ -16,14 +16,16 @@ equipes = ["Paris", "Marseille", "Bordeaux", "Rennes"]
 
 championnats.each do | championnat |
     [0..5].each do |indice|
+        home_predic = [0..50].sample
+        away_predic = [0..50].sample
         Match.create(
             matchday: indice,
             home_team: equipes.sample,
-            home_prevision: 40,
+            home_prevision: home_predic,
             home_score: [0..3].sample,
-            draw_prevision: 20,
+            draw_prevision: 100 - away_predic - home_predic,
             away_team: equipes.sample,
-            away_prevision: 40,
+            away_prevision: away_predic,
             away_score: [0..3].sample,
             championnat: championnat
         )
