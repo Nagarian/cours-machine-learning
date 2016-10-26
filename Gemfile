@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'simple_form'
 gem 'font-awesome-rails'
+gem "chartkick"
 # gem 'bootstrap-glyphicons'
 gem 'materialize-sass'
 gem 'material_icons'
