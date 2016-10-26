@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 # gem 'bootstrap-glyphicons'
 gem 'materialize-sass'
+gem 'material_icons'
 gem 'angularjs-rails'
 
 # Use Puma as the app server
