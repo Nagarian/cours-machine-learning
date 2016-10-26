@@ -6,7 +6,7 @@ a.btn href="#{new_match_path}" Créer un nouveau match
     .col.s12.m6
       .card
         .card-content
-          span.card-title.activator "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
+          span.card-title.activator "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
             i.material-icons.right more_vert
         .card-action
           = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
@@ -18,7 +18,7 @@ a.btn href="#{new_match_path}" Créer un nouveau match
             data: { confirm: 'Confirmer la suppression ?' },
             class: 'error'
           .card-reveal
-            span.card-title "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
-            p "Prédiction : #{@match.home_prediction} - #{@match.away_prediction}"
-            p "Réel : #{@match.home_score} - #{@match.away_score}"
-            p "Gagnant : #{@match.draw_prediction}"
+            span.card-title "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
+            p "Prédiction : #{match.home_prevision} - #{match.away_prevision}"
+            p "Réel : #{match.home_score} - #{match.away_score}"
+            p "Gagnant : #{match.draw_prevision}"
