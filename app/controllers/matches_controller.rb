@@ -31,7 +31,7 @@ class MatchesController < ApplicationController
   def update
     @match = Match.find(params[:id])
     @championnats = Championnat.all
-    if @match.update(matches_path)
+    if @match.update(match_params)
       redirect_to @match
     else
       render 'edit'
