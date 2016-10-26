@@ -10,74 +10,22 @@ ligue1 = Championnat.create(name: "Ligue 1")
 ligue2 = Championnat.create(name: "Ligue 2")
 ligue3 = Championnat.create(name: "Ligue 3")
 
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 40,
-    home_score: 2,
-    draw_prevision: 20,
-    away_team: "Bordeaux",
-    away_prevision: 40,
-    away_score: 4,
-    championnat: ligue1
-)
+championnats = [ligue1, ligue2, ligue3]
 
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 40,
-    home_score: 2,
-    draw_prevision: 20,
-    away_team: "Bordeaux",
-    away_prevision: 40,
-    away_score: 4,
-    championnat: ligue2
-)
+equipes = ["Paris", "Marseille", "Bordeaux", "Rennes"]
 
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 30,
-    home_score: 1,
-    draw_prevision: 20,
-    away_team: "Marseille",
-    away_prevision: 70,
-    away_score: 1,
-    championnat: ligue1
-)
-
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 40,
-    home_score: 2,
-    draw_prevision: 20,
-    away_team: "Bordeaux",
-    away_prevision: 40,
-    away_score: 4,
-    championnat: ligue1
-)
-
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 40,
-    home_score: 2,
-    draw_prevision: 20,
-    away_team: "Bordeaux",
-    away_prevision: 40,
-    away_score: 4,
-    championnat: ligue3
-)
-
-Match.create(
-    matchday: 1,
-    home_team: "Paris",
-    home_prevision: 40,
-    home_score: 2,
-    draw_prevision: 20,
-    away_team: "Bordeaux",
-    away_prevision: 40,
-    away_score: 4,
-    championnat: ligue2
-)
+championnats.each do | championnat |
+    [0..5].each do |indice|
+        Match.create(
+            matchday: indice,
+            home_team: equipes.sample,
+            home_prevision: 40,
+            home_score: [0..3].sample,
+            draw_prevision: 20,
+            away_team: equipes.sample,
+            away_prevision: 40,
+            away_score: [0..3].sample,
+            championnat: championnat
+        )
+    end
+end
