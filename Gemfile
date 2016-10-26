@@ -8,7 +8,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2'
 
 gem 'slim'
-
+gem 'simple_form'
 gem 'slim-rails'
 gem 'simple_form'
 gem 'font-awesome-rails'
