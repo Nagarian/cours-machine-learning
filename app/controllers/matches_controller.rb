@@ -46,6 +46,6 @@ class MatchesController < ApplicationController
 
   private
   def match_params
-    params.require(:match).permit(:matchday,:home_team,:home_prediction,:home_score,:draw_prediction,:away_team,:away_prediction,:away_score,:championnat_id)
+    params.require(:match).permit(:matchday,:home_team,:home_prevision,:home_score,:draw_prevision,:away_team,:away_prevision,:away_score,:championnat_id)
   end
 end
