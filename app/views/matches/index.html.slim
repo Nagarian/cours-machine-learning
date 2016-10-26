@@ -7,7 +7,7 @@ a.btn href="#{new_match_path}" Créer un nouveau match
       .card
         .card-content
           span.card-title.activator "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
-            i.material-icons.right more_vert
+          i.material-icons.right more_vert
         .card-action
           = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
             edit_match_path(match.id),

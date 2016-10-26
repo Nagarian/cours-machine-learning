@@ -3,17 +3,6 @@
     .card
       .card-content
         span.card-title.activator "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
-          i.material-icons.right more_vert
-      .card-action
-        = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
-          edit_match_path(@match.id),
-          class: "valid"
-        = link_to "<span class='fa fa-close'>Supprimer</span>".html_safe,
-          match_path(@match.id),
-          method: :delete,
-          data: { confirm: 'Confirmer la suppression ?' },
-          class: 'error'
-      .card-reveal
         span.card-title "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
         p "Prédiction : #{@match.home_prevision} - #{@match.away_prevision}"
         p "Réel : #{@match.home_score} - #{@match.away_score}"
