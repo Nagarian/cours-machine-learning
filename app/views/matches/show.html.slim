@@ -6,10 +6,10 @@
           i.material-icons.right more_vert
       .card-action
         = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
-          edit_match_path(match.id),
+          edit_match_path(@match.id),
           class: "valid"
         = link_to "<span class='fa fa-close'>Supprimer</span>".html_safe,
-          match_path(match.id),
+          match_path(@match.id),
           method: :delete,
           data: { confirm: 'Confirmer la suppression ?' },
           class: 'error'
