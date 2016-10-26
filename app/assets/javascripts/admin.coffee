@@ -4,3 +4,4 @@
 $ ->
   $(document).ready ->
     $(".button-collapse").sideNav()
+    Chartkick.configure({"language": "fr"});

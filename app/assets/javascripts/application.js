@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require materialize
 //= require_tree .
+//= require Chart.bundle
+//= require chartkick
