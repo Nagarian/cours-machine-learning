@@ -1,18 +1,24 @@
-h2 Liste des championnats
-a.btn href="#{new_championnat_path}" Créer un nouveau championnat
+h2 Liste des matchs
+a.btn href="#{new_match_path}" Créer un nouveau match
 
 .row
-  - @championnats.each do |championnat|
+  - @matches.each do |match|
     .col.s12.m6
       .card
         .card-content
-          span.card-title = championnat.name
+          span.card-title.activator "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
+            i.material-icons.right more_vert
         .card-action
           = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
-            edit_championnat_path(championnat.id),
+            edit_match_path(match.id),
             class: "valid"
           = link_to "<span class='fa fa-close'>Supprimer</span>".html_safe,
-            championnat_path(championnat.id),
+            match_path(match.id),
             method: :delete,
             data: { confirm: 'Confirmer la suppression ?' },
             class: 'error'
+          .card-reveal
+            span.card-title "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
+            p "Prédiction : #{@match.home_prediction} - #{@match.away_prediction}"
+            p "Réel : #{@match.home_score} - #{@match.away_score}"
+            p "Gagnant : #{@match.draw_prediction}"

@@ -1,4 +1,12 @@
-h2 Modifier championnat
-= simple_form_for @championnat do |f|
- = f.input :name, label: "Nom du championnat"
- = f.button :submit, "Valider", class: "btn"
+h2 Modifier match
+= simple_form_for @match do |m|
+  = m.input :matchday, label: "Jour du match"
+  = m.input :home_team, label: "Equipe locale"
+  = m.input :home_prediction, label: "Prédiction buts - locaux"
+  = m.input :home_score, label: "Buts - locaux"
+  = m.input :draw_prediction, label: "Gagnant"
+  = m.input :away_team, label: "Equipe visiteuse"
+  = m.input :away_prediction, label: "Prédiction buts - visiteurs"
+  = m.input :away_score, label: "Buts - visiteurs"
+  = m.input :championnat_id, label: "Championnat associé"
+  = m.button :submit, "Valider", class: "btn"

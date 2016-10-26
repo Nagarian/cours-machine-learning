@@ -15,6 +15,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
+    @championnats = Championnat.all
     if @match.save
       redirect_to matches_path
     else
@@ -23,11 +24,13 @@ class MatchesController < ApplicationController
   end
 
   def edit
+    @championnats = Championnat.all
     @match = Match.find(params[:id])
   end
   
   def update
     @match = Match.find(params[:id])
+    @championnats = Championnat.all
     if @match.update(matches_path)
       redirect_to @match
     else
@@ -43,13 +46,6 @@ class MatchesController < ApplicationController
 
   private
   def match_params
-    params.require(:match).permit(:matchday)
-    params.require(:match).permit(:home_team)
-    params.require(:match).permit(:home_prediction)
-    params.require(:match).permit(:home_score)
-    params.require(:match).permit(:draw_prediction)
-    params.require(:match).permit(:away_team)
-    params.require(:match).permit(:away_prediction)
-    params.require(:match).permit(:away_score)
+    params.require(:match).permit(:matchday,:home_team,:home_prediction,:home_score,:draw_prediction,:away_team,:away_prediction,:away_score,:championnat_id)
   end
 end
