@@ -5,10 +5,10 @@
         .card-content
           span.card-title = championnat.name
         .card-action
-          = link_to "<span class="fa fa-pencil">edit</span>".html_safe,
+          = link_to "<span class='fa fa-pencil'>edit</span>".html_safe,
             edit_championnat_path(championnat.id),
             class: "valid"
-          = link_to "<span class="fa fa-close"></span>".html_safe,
+          = link_to "<span class='fa fa-close'></span>".html_safe,
             championnat_path(championnat.id),
             method: :delete,
             data: { confirm: 'Confirmer la suppression ?' },
