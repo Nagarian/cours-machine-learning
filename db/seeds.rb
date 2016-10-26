@@ -20,11 +20,11 @@ championnats.each do | championnat |
         away_predic = rand(0..50)
         Match.create(
             matchday: indice,
-            home_team: equipes.sample,
+            home_team: rand(equipes),
             home_prevision: home_predic,
             home_score: rand(0..3),
             draw_prevision: 100.0 - away_predic - home_predic,
-            away_team: equipes.sample,
+            away_team: rand(equipes),
             away_prevision: away_predic,
             away_score: rand(0..3),
             championnat: championnat
