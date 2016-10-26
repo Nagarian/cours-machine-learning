@@ -2,11 +2,11 @@ h2 Modifier match
 = simple_form_for @match do |m|
   = m.input :matchday, label: "Jour du match"
   = m.input :home_team, label: "Equipe locale"
-  = m.input :home_prediction, label: "Prédiction buts - locaux"
+  = m.input :home_prevision, label: "Prédiction buts - locaux"
   = m.input :home_score, label: "Buts - locaux"
   = m.input :draw_prediction, label: "Gagnant"
   = m.input :away_team, label: "Equipe visiteuse"
-  = m.input :away_prediction, label: "Prédiction buts - visiteurs"
+  = m.input :away_prevision, label: "Prédiction buts - visiteurs"
   = m.input :away_score, label: "Buts - visiteurs"
   = m.input :championnat_id, label: "Championnat associé"
   = m.button :submit, "Valider", class: "btn"
