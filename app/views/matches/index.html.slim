@@ -1,0 +1,18 @@
+h2 Liste des championnats
+a.btn href="#{new_championnat_path}" Créer un nouveau championnat
+
+.row
+  - @championnats.each do |championnat|
+    .col.s12.m6
+      .card
+        .card-content
+          span.card-title = championnat.name
+        .card-action
+          = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
+            edit_championnat_path(championnat.id),
+            class: "valid"
+          = link_to "<span class='fa fa-close'>Supprimer</span>".html_safe,
+            championnat_path(championnat.id),
+            method: :delete,
+            data: { confirm: 'Confirmer la suppression ?' },
+            class: 'error'
