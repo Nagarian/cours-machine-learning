@@ -7,6 +7,11 @@ class MatchesController < ApplicationController
   
   def show
     @match = Match.find(params[:id])
+    @data = [
+      { name: @match.home_team, data: @match.home_prevision }
+      { name: "Match nul", data: @match.draw_prevision }
+      { name: @match.away_team, data: @match.away_prevision }
+    ]
   end 
 
   def new
