@@ -10,10 +10,8 @@
             target: "_self"
 
 
-  h2 = @championnat.name
-  h6
-    | Nombres de match : #{@matches.count}
-
+  h2.center-align = @championnat.name
+  
   - @matches.each do |match|
     .card
       .card-content
