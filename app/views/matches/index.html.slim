@@ -10,6 +10,8 @@ a.btn href="#{new_match_path}" Créer un nouveau match
           p "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
           i.material-icons.right more_vert
         .card-action
+          = link_to "<span class='fa fa-close'>Voir les détails</span>".html_safe,
+            match_path(match.id)
           = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
             edit_match_path(match.id),
             class: "valid"
