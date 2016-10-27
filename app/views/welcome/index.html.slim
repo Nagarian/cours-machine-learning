@@ -6,8 +6,17 @@
   - @matches.each do |match|
     .card
       .card-content.center-align
-        span.card-title
-          | #{match.home_team} #{match.home_score} - #{match.away_team} #{match.away_score}
+        .row
+          .col.s12.m4.l2.card-title = match.home_team
+          ul.col.s12.m4.l8
+            li
+              span Prévision
+              p
+                | #{match.home_prevision}% - #{match.draw_prevision}% - #{match.away_prevision}%
+            li
+              span Buts marqués
+              p
+                | #{match.home_score} - #{match.away_score}
+          .col.s12.m4.l2.card-title = match.away_team
 
   = will_paginate @matches
-    class: "pagination"
