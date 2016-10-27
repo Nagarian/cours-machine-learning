@@ -11,7 +11,6 @@ a.btn href="#{new_championnat_path}" Créer un nouveau championnat
           = link_to "<span class='fa fa-pencil'>Modifier</span>".html_safe,
             edit_championnat_path(championnat.id),
             class: "valid"
-            i.large.material-icons mode_edit
           = link_to "<span class='fa fa-close'>Supprimer</span>".html_safe,
             championnat_path(championnat.id),
             method: :delete,
