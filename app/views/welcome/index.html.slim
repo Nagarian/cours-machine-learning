@@ -5,8 +5,8 @@
 
   - @matches.each do |match|
     .card
-      .card-content
-        span.card-title.center-align
+      .card-content.center-align
+        span.card-title
           | #{match.home_team} #{match.home_score} - #{match.away_team} #{match.away_score}
 
   = will_paginate @matches
