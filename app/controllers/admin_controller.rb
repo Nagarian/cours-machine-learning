@@ -18,6 +18,16 @@ class AdminController < ApplicationController
       
       @datas.push({name: championnat.name, data: arr2})
     end
+
+    @data2 = []
+    Championnat.all.each do |championnat|
+      championnat.matches.each do |match|
+        winner = match.home_score > match.away_score ? match.home_team : match.home_score == match.away_score ? "draw" : match.away_team
+        @data2.push({ championnat: championnat.name, winner: winner})
+      end
+    end
+
+    @data2.group(:championnat).count()
   end
 
   def github
