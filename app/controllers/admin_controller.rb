@@ -16,7 +16,7 @@ class AdminController < ApplicationController
         arr2.push([a, arr.count(a)])
       end
       
-      @datas.push({name: championnat.name, value: arr2})
+      @datas.push({name: championnat.name, data: arr2})
     end
   end
 
