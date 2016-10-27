@@ -5,7 +5,7 @@
 .card
   .card-content
     span.card-title Répartition des équipes ayant le plus joué chez les autres
-    = pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
+    = pie_chart @matches.group(:away_team).count,library: {legend:{position:'none'}}
 .card
   .card-content
     span.card-title Matchs gagné par ligue pour chacune des équipes
