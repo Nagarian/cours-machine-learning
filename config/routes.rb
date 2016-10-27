@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :championnats
   get 'admin/index'
   get '/admin', to: 'admin#index'
+  get '/admin/github', to: 'admin#github'
   get 'welcome/index'
   resources :championnats
   resources :matches
