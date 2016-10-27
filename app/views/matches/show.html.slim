@@ -1,11 +1,13 @@
-.row
-  .col.s12.m6
-    .card
-      .card-content
-        span.card-title.activator "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
-        span.card-title "Jour # #{@match.matchday} : #{@match.home_team} - #{@match.away_team}"
-        p "Prédiction : #{@match.home_prevision} - #{@match.away_prevision}"
-        p "Réel : #{@match.home_score} - #{@match.away_score}"
-        p "Gagnant : #{@match.draw_prevision}"
-
-= pie_chart @data 
+.container.center-align
+  .row
+    h1
+      | Jour # #{@match.matchday}
+    h1
+      | #{@match.home_team} - #{@match.away_team}
+    p
+      | Prédiction : #{@match.home_prevision} - #{@match.draw_prevision} - #{@match.away_prevision}
+    p
+      | Réel : #{@match.home_score} - #{@match.away_score}
+  .row
+    h2 Prédiction du match
+    = pie_chart @data 
