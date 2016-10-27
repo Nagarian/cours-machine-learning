@@ -2,7 +2,7 @@ class ChampionnatsController < ApplicationController
     layout 'admin'
     
     def index
-        @championnats = Championnat.all
+        @championnats = Championnat.all.includes(:match)
     end
     
     def show
