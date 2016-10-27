@@ -7,6 +7,6 @@ class AdminController < ApplicationController
 
   def github
     system('git pull')
-    redirect_to admin_path
+    render :nothing => true, :status => :ok
   end
 end
