@@ -3,7 +3,7 @@
     ul.tabs
     - @championnats.each do |c|
       li.tab.col.s3
-        a class=(championnat == c? ? 'active' : '') href="#{welcome_path}?#{c.championnat_id}" target="_self" = c.name
+        a class=(@championnat == c? ? 'active' : '') href="#{welcome_path}?#{c.championnat_id}" target="_self" = c.name
 
   h2 = @championnat.name
   h6
