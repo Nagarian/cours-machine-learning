@@ -1,1 +1,2 @@
-= pie_chart @matches.group(:home_team).count
+= pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
+= bar_chart @datas
