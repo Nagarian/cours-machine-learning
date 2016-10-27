@@ -1,11 +1,12 @@
 .container
+  br
   .row
     ul.tabs
       - @championnats.each do |c|
         li.tab.col.s3
           = link_to c.name,
             select_champ_path(c.id),
-            class: (@championnat == c ? "active" : ""),
+            class: (@championnat == c ? "active cyan-text text-lighten-2" : "cyan-text text-lighten-2"),
             target: "_self"
 
 
