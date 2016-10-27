@@ -17,6 +17,7 @@ gem "chartkick"
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'angularjs-rails'
+gem 'will_paginate'
 
 # Use Puma as the app server
 # gem 'puma', '~> 3.0'
