@@ -6,6 +6,7 @@ class AdminController < ApplicationController
   end
 
   def github
-    exec('git pull')
+    system('git pull')
+    render 'admin'
   end
 end
