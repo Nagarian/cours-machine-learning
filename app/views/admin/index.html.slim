@@ -1,6 +1,12 @@
-h1 Répartition des équipes ayant le plus joué chez eux
-= pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
-h1 Répartition des équipes ayant le plus joué chez les autres
-= pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
-h1 Matchs gagné par ligue pour chacune des équipes
-= column_chart @datas
+.card
+  .card-content
+    span.card-title Répartition des équipes ayant le plus joué chez eux
+    = pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
+.card
+  .card-content
+    span.card-title Répartition des équipes ayant le plus joué chez les autres
+    = pie_chart @matches.group(:home_team).count,library: {legend:{position:'none'}}
+.card
+  .card-content
+    span.card-title Matchs gagné par ligue pour chacune des équipes
+    = column_chart @datas
