@@ -5,9 +5,18 @@ class AdminController < ApplicationController
     @matches = Match.all
     @datas = []
     Championnat.all.each do |championnat|
+      arr = []
       championnat.matches.each do |match|
-        @datas.push([championnat.name, match.home_score > match.away_score ? match.home_team : match.home_score == match.away_score ? "draw" : match.away_team])
+        arr.push(match.home_score > match.away_score ? match.home_team : match.home_score == match.away_score ? "draw" : match.away_team)
       end
+      
+      arr2 = []
+      
+      arr.uniq.each do |a|
+        arr2.push([a, arr.count(a)])
+      end
+      
+      @datas.push([name: championnat.name, value: arr2])
     end
   end
 
