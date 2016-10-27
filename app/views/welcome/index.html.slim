@@ -5,10 +5,10 @@
 
   - @matches.each do |match|
     .card
-      .card-content.center-align.valign-wrapper
-        .row
-          .col.s12.m4.l2.card-title = match.home_team
-          ul.col.s12.m4.l8
+      .card-content
+        .row.valign-wrapper
+          .col.s12.m4.l2.card-title.left-align = match.home_team
+          ul.col.s12.m4.l8.center-align
             li
               span Prévision
               p
@@ -17,6 +17,6 @@
               span Buts marqués
               p
                 | #{match.home_score} - #{match.away_score}
-          .col.s12.m4.l2.card-title = match.away_team
+          .col.s12.m4.l2.card-title.right-align = match.away_team
 
   = will_paginate @matches, class: 'center-align'
