@@ -4,7 +4,7 @@
     - @championnats.each do |c|
       li.tab.col.s3
         = link_to c.name,
-          index_welcome_path(c.id),
+          select_champ_path(c.id),
           class: (@championnat == c ? "active" : ""),
           target: "_self"
 
