@@ -1,13 +1,15 @@
 .container.center-align
   .row
-    h1
+    h2
       | Jour # #{@match.matchday}
-    h1
+    h2
       | #{@match.home_team} - #{@match.away_team}
+    h3 Prédiction
     p
-      | Prédiction : #{@match.home_prevision} - #{@match.draw_prevision} - #{@match.away_prevision}
+      | #{@match.home_prevision}% - #{@match.draw_prevision}% - #{@match.away_prevision}%
+    h3 Réel
     p
-      | Réel : #{@match.home_score} - #{@match.away_score}
+      | #{@match.home_score} - #{@match.away_score}
   .row
     h2 Prédiction du match
     = pie_chart @data 
