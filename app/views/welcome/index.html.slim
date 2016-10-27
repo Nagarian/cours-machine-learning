@@ -1,8 +1,9 @@
-h2 = @championnat.name
-h6
-  | Nombres de match : #{@matches.count}
+.container
+  h2 = @championnat.name
+  h6
+    | Nombres de match : #{@matches.count}
 
-- @matches.each do |match|
-  | #{match.home_team} #{match.home_score} - #{match.away_team} #{match.away_score}
-
-= will_paginate @matches
+  - @matches.each do |match|
+    | #{match.home_team} #{match.home_score} - #{match.away_team} #{match.away_score}
+    br
+  = will_paginate @matches
