@@ -1,4 +1,10 @@
 .container
+  .row
+    ul.tabs
+    - @championnats.each do |c|
+      li.tab.col.s3 = c.name
+        a class=(championnat == c? ? 'active' : '') href='#{welcome_path}?#{c.championnat_id}'
+
   h2 = @championnat.name
   h6
     | Nombres de match : #{@matches.count}
