@@ -5,7 +5,7 @@
 
   - @matches.each do |match|
     .card
-      .card-content.center-align
+      .card-content.center-align.valign-wrapper
         .row
           .col.s12.m4.l2.card-title = match.home_team
           ul.col.s12.m4.l8
@@ -19,4 +19,4 @@
                 | #{match.home_score} - #{match.away_score}
           .col.s12.m4.l2.card-title = match.away_team
 
-  = will_paginate @matches
+  = will_paginate @matches, class: 'center-align'
