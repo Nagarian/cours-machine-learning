@@ -6,7 +6,6 @@
         = link_to c.name,
           index_welcome_path(c.id),
           class: (@championnat == c ? "active" : "")
-          target: "_self"
 
   h2 = @championnat.name
   h6
