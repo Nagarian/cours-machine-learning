@@ -11,10 +11,12 @@
 
 
   h2.center-align = @championnat.name
-  
+
   - @matches.each do |match|
     .card
       .card-content
+        .row.center-align
+          | Jour # #{match.matchday}
         .row.valign-wrapper
           .col.s12.m4.l2.card-title.left-align = match.home_team
           ul.col.s12.m4.l8.center-align
