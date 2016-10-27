@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
   
+  get '/welcome/:id', to: 'welcome#index'
   get '/admin', to: 'admin#index'
   post '/admin/github', to: 'admin#github'
   resources :championnats
