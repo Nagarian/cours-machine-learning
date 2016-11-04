@@ -6,7 +6,7 @@ class AdminController < ApplicationController
     @datas = []
     Championnat.all.each do |championnat|
       arr = []
-      championnat.matches.each do |match|
+      championnat.matches.where.not('home_score' => nil).each do |match|
         arr.push(match.home_score > match.away_score ? match.home_team : match.home_score == match.away_score ? "draw" : match.away_team)
       end
       
