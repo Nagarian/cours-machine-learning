@@ -16,7 +16,7 @@ class PredictionJob
         match.home_prevision = result["home.win"][i]
         match.draw_prevision = result["draw"][i]
         match.away_prevision = result["away.win"][i]
-        match.save
+        match.save!
 
         # Match.create(
         #   matchday: matchday,
