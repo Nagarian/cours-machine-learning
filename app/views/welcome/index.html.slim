@@ -10,7 +10,8 @@
             target: "_self"
 
 
-  h2.center-align = @championnat.name
+  h2.center-align
+    | @championnat.name @matches[0].championnat_year - Jour # @matches[0].matchday
 
   - @matches.each do |match|
     .card
