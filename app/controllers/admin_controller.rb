@@ -32,7 +32,7 @@ class AdminController < ApplicationController
 
   def predict
     PredictionJob.perform_async()
-    redirect_to admin_home_path
+    redirect_to admin_path
   end
 
   def github
