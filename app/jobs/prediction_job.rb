@@ -5,6 +5,7 @@ class PredictionJob
     ActiveRecord::Base.connection_pool.with_connection do
       script = predict_script
       result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
+      puts "Prediction done"
 
       matchday = 12
       championnat_year = "2016_2017"
@@ -29,6 +30,7 @@ class PredictionJob
         #   championnat_id: ligue1.id
         # )
       end
+      puts result.first.length + " matches created"
     end   
   end
 
