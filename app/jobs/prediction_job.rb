@@ -12,12 +12,11 @@ class PredictionJob
       ligue1 = Championnat.find(1)
 
       (1..result.first.length).each do |i|
-        Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize.tap do |match|
-          match.home_prevision = result["home.win"][i]
-          match.draw_prevision = result["draw"][i]
-          match.away_prevision = result["away.win"][i]
-          match.save
-        end
+        match = Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize
+        match.home_prevision = result["home.win"][i]
+        match.draw_prevision = result["draw"][i]
+        match.away_prevision = result["away.win"][i]
+        match.save
 
         # Match.create(
         #   matchday: matchday,
@@ -30,7 +29,7 @@ class PredictionJob
         #   championnat_id: ligue1.id
         # )
       end
-      puts result.first.length + " matches created"
+      puts "#{result.first.length} matches created"
     end   
   end
 
