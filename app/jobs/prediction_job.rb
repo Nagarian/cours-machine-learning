@@ -2,7 +2,6 @@ class PredictionJob
   include SuckerPunch::Job
   workers 2
   def perform
-    puts test
     ActiveRecord::Base.connection_pool.with_connection do
       script = predict_script
       result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
