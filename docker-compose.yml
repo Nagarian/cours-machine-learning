@@ -28,3 +28,9 @@ services:
     volumes:
     - ./rails:/root/rails
     - ./bundle:/usr/local/bundle
+  
+  rserve:
+    image: wnagele/rserve
+    container_name: rserve
+    volumes: 
+    - ./rails/lala/public/data:/public/data
