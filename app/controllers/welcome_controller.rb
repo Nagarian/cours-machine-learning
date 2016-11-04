@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
     
     @championnat = Championnat.find((params[:id] || 1))
 
-    @matches = Match.where(championnat: @championnat).order(:matchday).paginate(:page => params[:page], :per_page => 3)
+    @matches = Match.where(championnat: @championnat).order(:matchday).paginate(:page => params[:page], :per_page => 10)
   end
 end
