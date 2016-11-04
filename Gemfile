@@ -6,7 +6,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2'
-gem "activerecord-import", ">= 0.2.0"
+gem 'activerecord-import', '~> 0.3.1', :require => false
 gem 'slim'
 gem 'simple_form'
 gem 'slim-rails'

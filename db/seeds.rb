@@ -40,8 +40,11 @@ ligue1 = Championnat.create(name: "Ligue 1")
 # end
 
 require 'csv'
+require 'active_record'
+require 'activerecord-import'
 require "activerecord-import/base"
 ActiveRecord::Import.require_adapter('mysql2')
+
 
 fields_to_insert = %w{ HomeTeam FTHG AwayTeam FTAG }
 rows_to_insert = []
