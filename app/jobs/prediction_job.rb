@@ -5,17 +5,31 @@ class PredictionJob
     ActiveRecord::Base.connection_pool.with_connection do
       script = predict_script
       result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
-      if result
-        puts result
+
+      matchday = 12
+      championnat_year = "2016_2017"
+      ligue1 = Championnat.find(1)
+
+      (1..result.first.length).each do |i|
+        Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize.tap do |match|
+          user.home_prevision = result["home.win"][i]
+          user.draw_prevision = result["draw"][i]
+          user.away_prevision = result["away.win"][i]
+          user.save
+        end
+
+        # Match.create(
+        #   matchday: matchday,
+        #   championnat_year: championnat_year,
+        #   home_team: result["home.team"][i],
+        #   home_prevision: result["home.win"][i],
+        #   draw_prevision: result["draw"][i],
+        #   away_team: result["away.team"][i],
+        #   away_prevision: result["away.win"][i],
+        #   championnat_id: ligue1.id
+        # )
       end
     end   
-  end
-  
-  def lala
-    ActiveRecord::Base.connection_pool.with_connection do
-      script = predict_script
-      return Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
-    end
   end
 
   private

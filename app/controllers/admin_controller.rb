@@ -30,6 +30,11 @@ class AdminController < ApplicationController
     # @data2.group(:championnat).count()
   end
 
+  def predict
+    PredictionJob.perform_async()
+    render :nothing => true, :status => :ok
+  end
+
   def github
     system('git pull')
     render :nothing => true, :status => :ok

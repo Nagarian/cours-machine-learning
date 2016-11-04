@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   get '/admin', to: 'admin#index'
   post '/admin/github', to: 'admin#github'
+  get '/admin/predict', to: 'admin#predict'
 
   resources :championnats
   resources :matches
