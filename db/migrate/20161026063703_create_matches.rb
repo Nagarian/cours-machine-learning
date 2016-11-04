@@ -2,7 +2,7 @@ class CreateMatches < ActiveRecord::Migration[5.0]
   def change
     create_table :matches do |t| 
       t.integer :matchday         # journée de championnat
-      t.integer :championnat_year # année de championnat
+      t.string :championnat_year # année de championnat
       t.string :home_team         # équipe à domicile
       t.float :home_prevision     # prévision score domicile
       t.integer :home_score       # score réel domicile
