@@ -12,10 +12,10 @@ class PredictionJob
 
       (1..result.first.length).each do |i|
         Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize.tap do |match|
-          user.home_prevision = result["home.win"][i]
-          user.draw_prevision = result["draw"][i]
-          user.away_prevision = result["away.win"][i]
-          user.save
+          match.home_prevision = result["home.win"][i]
+          match.draw_prevision = result["draw"][i]
+          match.away_prevision = result["away.win"][i]
+          match.save
         end
 
         # Match.create(
