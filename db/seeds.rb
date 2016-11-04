@@ -63,11 +63,8 @@ files.each do |file|
         :matchday => matchday,
         :championnat_year => file,
         :home_team => row_pre_insert["HomeTeam"],
-        :home_prevision => 0,
         :home_score => row_pre_insert["FTHG"].to_i,
-        :draw_prevision => 0,
         :away_team => row_pre_insert["AwayTeam"],
-        :away_prevision => 0,
         :away_score => row_pre_insert["FTAG"].to_i,
         :championnat_id => ligue1.id
     }
