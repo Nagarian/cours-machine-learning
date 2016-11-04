@@ -4,7 +4,7 @@ class PredictionJob
   def perform
     ActiveRecord::Base.connection_pool.with_connection do
       script = predict_script
-      result = Rserve::Connection.new.eval(script).to_ruby
+      result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
       if result
         puts result
       end
