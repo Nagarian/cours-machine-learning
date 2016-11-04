@@ -2,6 +2,7 @@ class PredictionJob
   include SuckerPunch::Job
   workers 2
   def perform
+    puts test
     ActiveRecord::Base.connection_pool.with_connection do
       script = predict_script
       result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
@@ -15,7 +16,7 @@ class PredictionJob
   def predict_script
     <<-EOF
     #import data
-setwd("/public/data")
+setwd("./public/data")
 dataLigue1<-data.frame()
 for (i in 1:(length(list.files())-1))
 {
