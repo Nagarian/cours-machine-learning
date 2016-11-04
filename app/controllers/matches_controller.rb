@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
   layout 'admin'
   
   def index
-    @matches = Match.all
+    @matches = Match.all.where(championnat_id: 1).where(championnat_year: "2016_2017").order(matchday: :desc).paginate(:page => params[:page], :per_page => 10)
   end
   
   def show

@@ -24,3 +24,5 @@ a.btn href="#{new_match_path}" Créer un nouveau match
           span.card-title "Jour # #{match.matchday} : #{match.home_team} - #{match.away_team}"
           p "Prédiction : H: #{match.home_prevision} - D: #{match.draw_prevision} - A: #{match.away_prevision}"
           p "Réel : #{match.home_score} - #{match.away_score}"
+
+= will_paginate @matches, class: 'center-align'
