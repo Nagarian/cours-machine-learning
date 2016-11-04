@@ -32,7 +32,7 @@ class AdminController < ApplicationController
 
   def predict
     PredictionJob.perform_async()
-    render :nothing => true, :status => :ok
+    redirect_to action: index
   end
 
   def github
