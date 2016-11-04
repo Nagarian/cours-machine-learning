@@ -6,38 +6,39 @@ class PredictionJob
       script = predict_script
       result = Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
       puts "Prediction done"
+      if result
+        matchday = 12
+        championnat_year = "2016_2017"
+        ligue1 = Championnat.find(1)
 
-      matchday = 12
-      championnat_year = "2016_2017"
-      ligue1 = Championnat.find(1)
-
-      (1..result.first.length).each do |i| 
-        Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize.tap do |match|
-          if match.id == nil
-            match.championnat_id = ligue1.id
-            match.matchday = matchday
-            match.championnat_year = championnat_year
-            match.home_team = result["home.team"][i]
-            match.away_team = result["away.team"][i]
+        (0..result.first.length-1).each do |i|
+          Match.where("championnat_id = ? AND matchday = ? AND championnat_year = ? AND home_team = ? AND away_team = ?", ligue1.id, matchday, championnat_year, result["home.team"][i], result["away.team"][i]).first_or_initialize.tap do |match|
+            if match.id == nil
+              match.championnat_id = ligue1.id
+              match.matchday = matchday
+              match.championnat_year = championnat_year
+              match.home_team = result["home.team"][i]
+              match.away_team = result["away.team"][i]
+            end
+            match.home_prevision = result["home.win"][i]
+            match.draw_prevision = result["draw"][i]
+            match.away_prevision = result["away.win"][i]
+            match.save
           end
-          match.home_prevision = result["home.win"][i]
-          match.draw_prevision = result["draw"][i]
-          match.away_prevision = result["away.win"][i]
-          match.save
-        end
 
-        # Match.create(
-        #   matchday: matchday,
-        #   championnat_year: championnat_year,
-        #   home_team: result["home.team"][i],
-        #   home_prevision: result["home.win"][i],
-        #   draw_prevision: result["draw"][i],
-        #   away_team: result["away.team"][i],
-        #   away_prevision: result["away.win"][i],
-        #   championnat_id: ligue1.id
-        # )
+          # Match.create(
+          #   matchday: matchday,
+          #   championnat_year: championnat_year,
+          #   home_team: result["home.team"][i],
+          #   home_prevision: result["home.win"][i],
+          #   draw_prevision: result["draw"][i],
+          #   away_team: result["away.team"][i],
+          #   away_prevision: result["away.win"][i],
+          #   championnat_id: ligue1.id
+          # )
+        end
+        puts "#{result.first.length} matches created"
       end
-      puts "#{result.first.length} matches created"
     end   
   end
 
