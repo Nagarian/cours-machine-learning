@@ -40,9 +40,6 @@ ligue1 = Championnat.create(name: "Ligue 1")
 # end
 
 require 'csv'
-require 'active_record'
-require 'activerecord-import'
-require "activerecord-import/base"
 ActiveRecord::Import.require_adapter('mysql2')
 
 
@@ -60,13 +57,13 @@ files.each do |file|
     row_pre_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
     
     row_to_insert = {
-        :matchday => matchday,
-        :championnat_year => file,
-        :home_team => row_pre_insert["HomeTeam"],
-        :home_score => row_pre_insert["FTHG"].to_i,
-        :away_team => row_pre_insert["AwayTeam"],
-        :away_score => row_pre_insert["FTAG"].to_i,
-        :championnat_id => ligue1.id
+        "matchday" => matchday,
+        "championnat_year" => file,
+        "home_team" => row_pre_insert["HomeTeam"],
+        "home_score" => row_pre_insert["FTHG"].to_i,
+        "away_team" => row_pre_insert["AwayTeam"],
+        "away_score" => row_pre_insert["FTAG"].to_i,
+        "championnat_id" => ligue1.id
     }
 
     rows_to_insert << row_to_insert
