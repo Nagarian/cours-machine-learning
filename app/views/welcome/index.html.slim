@@ -13,6 +13,10 @@
   h2.center-align
     | #{@championnat.name} - #{@matches[0].championnat_year} - Jour # #{@matches[0].matchday}
 
+  - if @good_prediction != nil
+    h2.center-align
+      | Bonne prédiction #{@good_prediction} / 10
+
   - @matches.each do |match|
     .card
       .card-content
