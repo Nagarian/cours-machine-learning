@@ -38,3 +38,29 @@ championnats.each do | championnat |
         )
     end
 end
+
+# require 'csv'
+
+# fields_to_insert = %w{ HomeTeam FTHG AwayTeam FTAG }
+# rows_to_insert = []
+
+
+# ligue1 = Championnat.find(1)
+# CSV.foreach("public/data/2007_2008.csv", headers: true) do |row|
+#   row_pre_insert = row.to_hash.select { |k, v| fields_to_insert.include?(k) }
+  
+#   row_to_insert = {
+#       :home_team => row_pre_insert["HomeTeam"],
+#       :home_prevision => 0,
+#       :home_score => row_pre_insert["FTHG"],
+#       :draw_prevision => 0,
+#       :away_team => row_pre_insert["AwayTeam"],
+#       :away_prevision => 0,
+#       :away_score => row_pre_insert["FTAG"],
+#       :championnat_id => ligue1.id
+#   }
+
+#   rows_to_insert << row_to_insert
+# end
+
+# Match.import(rows_to_insert)
