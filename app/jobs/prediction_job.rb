@@ -15,7 +15,7 @@ class PredictionJob
   def predict_script
     <<-EOF
     #import data
-setwd("./public/data")
+setwd("/public/data")
 dataLigue1<-data.frame()
 for (i in 1:(length(list.files())-1))
 {
