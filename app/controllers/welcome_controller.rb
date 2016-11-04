@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    PredictionJob.perform_async()
     @championnats = Championnat.all
     
     @championnat = Championnat.find((params[:id] || 1))
