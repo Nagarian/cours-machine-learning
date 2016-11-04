@@ -10,6 +10,13 @@ class PredictionJob
       end
     end   
   end
+  
+  def lala
+    ActiveRecord::Base.connection_pool.with_connection do
+      script = predict_script
+      return Rserve::Connection.new(opts= {:hostname => "rserve" } ).eval(script).to_ruby
+    end
+  end
 
   private
   def predict_script
