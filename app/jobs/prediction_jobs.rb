@@ -1,4 +1,3 @@
-# app/jobs/prediction_job.rb
 class PredictionJob
   include SuckerPunch::Job
   workers 2
