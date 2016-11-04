@@ -20,15 +20,16 @@ ActiveRecord::Schema.define(version: 20161026063703) do
 
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "matchday"
+    t.string   "championnat_year"
     t.string   "home_team"
-    t.float    "home_prevision", limit: 24
+    t.float    "home_prevision",   limit: 24
     t.integer  "home_score"
-    t.float    "draw_prevision", limit: 24
+    t.float    "draw_prevision",   limit: 24
     t.string   "away_team"
-    t.float    "away_prevision", limit: 24
+    t.float    "away_prevision",   limit: 24
     t.integer  "away_score"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "championnat_id"
     t.index ["championnat_id"], name: "index_matches_on_championnat_id", using: :btree
   end
